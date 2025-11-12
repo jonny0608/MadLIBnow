@@ -1,53 +1,39 @@
-/* 
-  Mad Lib Starter (Beginner JS)
-
-  GOAL:
-  - Ask the user for several words using prompt()
-  - Save each answer in a variable (use let or const)
-  - Build a story string using a template literal (backticks) with ${variableName}
-  - Put the finished story into the page by setting innerHTML on the element with id "madlib-output"
-
-  IMPORTANT:
-  - Do NOT use if/else or any other advanced JS yet.
-  - Only variables, prompt(), strings, and innerHTML.
-  - Write your own prompts and story!
-*/
-
-/* 1) CREATE VARIABLES 
-   - Make one variable per word you need (e.g., a noun, a verb, an adjective, a place, a number, etc.)
-   - Use prompt() to ask the user for each word.
-   - EXAMPLE CATEGORIES (choose your own): noun1, adjective1, verbPast, place, animal, food
-   - Name variables clearly so you remember what each one is for.
-*/
-
-
-/* 2) BUILD YOUR STORY STRING
-   - Use a template literal: it starts and ends with backticks (the ` key).
-   - Insert variables with ${variableName} in your sentence.
-   - Keep it fun! Make sure your story uses ALL the variables you collected.
-*/
-
-
-/* 3) DISPLAY THE STORY ON THE PAGE
-   - Select the element with id "madlib-output" using document.getElementById(...)
-   - Set its .innerHTML to your story variable from Step 2.
-   - Optional: include simple <strong> or <em> tags inside your story string for emphasis.
-*/
+// Mad Lib Generator
+const name = prompt("Enter a person's name:");
+const adjective1 = prompt("Enter an adjective (describing word):");
+const place = prompt("Enter a place:");
+const noun1 = prompt("Enter a noun (thing):");
+const verb1 = prompt("Enter a verb ending in -ing:");
+const adjective2 = prompt("Enter another adjective:");
+const noun2 = prompt("Enter another noun:");
+let verb2 = prompt("Enter a verb (past tense):");
+const adjective3 = prompt("Enter one more adjective:");
+const noun3 = prompt("Enter a final noun:");
+const story = `
+  <h3 class="text-primary mb-3">The Crazy Day of ${name}</h3>
+  <p>
+    One ${adjective1} morning ${name} woke up and decided to go to ${place}.
+    When they got there, they saw a weird ${noun1} that was just ${verb1}
+    all over the place.
+  </p>
+  <p>
+    Woah thats so ${adjective2}! said ${name}. I have literally never seen
+    a ${noun2} like that in my entire life. So they ${verb2} over to check it out.
+  </p>
+  <p>
+    But then something insane happened the ${noun1} started glowing with a
+    ${adjective3} light. ${name} couldnt believe it. This wasnt just any
+    normal ${noun3}, this was something totally different.
+  </p>
+  <p class="text-muted mt-4">
+    To be continued...
+  </p>
+`;
 
 
+const outputElement = document.getElementById("madlib-output");
 
-/* 4) OPTIONAL POLISH
-   - Add a title or intro line at the top of your story (still using the same innerHTML).
-   - Use <br> tags inside your story string to control line breaks if you want multiple lines.
-   - Keep your variable names, prompts, and story grammar consistent.
-*/
 
-/* 5) RUBRIC REMINDER (quick checklist)
-   - Prompts: You ask for all required words with clear messages.
-   - Variables: You use let/const with meaningful names.
-   - Template Literals: You use backticks and ${} correctly.
-   - Display: The story shows up clearly in #madlib-output.
-   - Bootstrap: Don’t remove the .row/.col structure in index.html.
-   - Comments: Explain each step in your code.
-   - GitHub: Commit often with clear messages; publish on GitHub Pages.
-*/
+
+
+outputElement.innerHTML = story;
